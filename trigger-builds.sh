@@ -6,8 +6,8 @@ setup_git() {
 }
 
 trigger() {
- # git pull https://$GH_TOKEN@github.com/munderseth/ci.sandbox.git
-  git checkout -b $1
+  git pull https://$GH_TOKEN@github.com/munderseth/ci.sandbox.git
+  git checkout $1
   date >> commit-trigger.txt
   git add commit-trigger.txt
   git commit -m "trigger $1 CI build(s) ..."
