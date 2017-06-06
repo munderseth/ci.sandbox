@@ -1,22 +1,14 @@
 #!/bin/sh
 
-standalone() {
-  git checkout standalone
+trigger-branch() {
+  git checkout $1
   date >> commit-trigger.txt
   git add commit-trigger.txt
-  git commit -m "trigger Standalone CI builds ..."
-  git push https://$GH_TOKEN@github.com/munderseth/ci.sandbox.git standalone
+  git commit -m "trigger $1 CI build(s) ..."
+  git push https://$GH_TOKEN@github.com/munderseth/ci.sandbox.git $1
   git checkout master
 }
 
-travis() {
-  git checkout travis
-  date >> commit-trigger.txt
-  git add commit-trigger.txt
-  git commit -m "trigger Travis CI build ..."
-  git push https://$GH_TOKEN@github.com/munderseth/ci.sandbox.git travis
-  git checkout master
-}
 
-standalone
-travis
+trigger-branch standalone
+trigger-branch travis
