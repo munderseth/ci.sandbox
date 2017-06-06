@@ -9,7 +9,7 @@ before_install:
   - git clone https://$GH_TOKEN@github.com/s2technologies/testspace.git
   - cd testspace
   - git checkout 18_release
-  - GIT_DIR=testspace/.git testspace config url http://mark.stridespace.com
+  - GIT_DIR=testspace/.git testspace config url http://mark.stridespace.com TRAVIS_BRANCH=master
  
 script:
   
