@@ -6,9 +6,11 @@ before_install:
   - testspace -v
  # - git clone https://$GH_TOKEN@github.com/munderseth/mytestspace
  # - GIT_DIR=mytestspace/.git testspace config url http://mark.stridespace.com
-  - git clone https://$GH_TOKEN@github.com/s2technologies/testspace.git
+#  - git clone https://$GH_TOKEN@github.com/s2technologies/testspace.git
+  - git clone $TS_REPO
   - cd testspace
-  - git checkout 18_release
+  - git checkout $TS_REPO_BRANCH
+#  - git checkout 18_release
   - cd ..
   - GIT_DIR=testspace/.git testspace config url http://mark.stridespace.com TRAVIS_BRANCH=master
  
