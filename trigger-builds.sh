@@ -6,7 +6,6 @@ setup_git() {
 }
 
 trigger() {
-#  git pull https://$GH_TOKEN@github.com/munderseth/ci.sandbox.git
   git clone https://$GH_TOKEN@github.com/munderseth/ci.sandbox.git
   cd ci.sandbox
   git checkout $1
@@ -15,9 +14,8 @@ trigger() {
   git commit -m "trigger $1 CI build(s) ..."
   git push https://$GH_TOKEN@github.com/munderseth/ci.sandbox.git $1
   cd ..
-#  git checkout master
 }
 
 setup_git
 trigger standalone
-#trigger travis
+trigger travis
