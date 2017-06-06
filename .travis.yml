@@ -4,7 +4,7 @@ before_install:
   - mkdir -p $HOME/bin
   - curl -s https://testspace-client.s3.amazonaws.com/testspace-linux-dev.tgz | tar -zxvf- -C $HOME/bin
   - testspace -v
-  - testspace config url http://mark.stridespace.com/munderseth:ci.sandbox
+  - testspace config url http://mark.stridespace.com
 
 script:
   - git clone https://$GH_TOKEN@github.com/munderseth/mytestspace
