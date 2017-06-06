@@ -8,7 +8,7 @@ before_install:
 
 script:
   - git clone https://$GH_TOKEN@github.com/munderseth/mytestspace
-  - GIT_DIR=mytestspace/.git testspace "README.md{0:Master controls triggering}" suite-pass.xml --repo git "#Build.$TRAVIS_BUILD_NUMBER"
+  - GIT_DIR=mytestspace/.git testspace "README.md{0:Master controls triggering}" suite-pass.xml --repo git 
 
    
 after_script:
