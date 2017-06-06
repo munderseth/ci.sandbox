@@ -4,13 +4,14 @@ before_install:
   - mkdir -p $HOME/bin
   - curl -s https://testspace-client.s3.amazonaws.com/testspace-linux-dev.tgz | tar -zxvf- -C $HOME/bin
   - testspace -v
-  - git clone https://$GH_TOKEN@github.com/munderseth/mytestspace
-  - GIT_DIR=mytestspace/.git testspace config url http://mark.stridespace.com
-
+ # - git clone https://$GH_TOKEN@github.com/munderseth/mytestspace
+ # - GIT_DIR=mytestspace/.git testspace config url http://mark.stridespace.com
+  - git clone https://$GH_TOKEN@github.com/s2technologies/testspace.git
+  - GIT_DIR=testspace/.git testspace config url http://mark.stridespace.com
+ 
 script:
   
   - testspace "README.md{0:Master controls triggering}" suite-pass.xml
 
-   
 after_script:
   - ./trigger-builds.sh
