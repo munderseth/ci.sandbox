@@ -1,0 +1,12 @@
+language: generic
+
+before_install:
+  - mkdir -p $HOME/bin
+  - curl -s https://testspace-client.s3.amazonaws.com/testspace-linux-dev.tgz | tar -zxvf- -C $HOME/bin
+  - testspace -v
+
+script:
+  - ./trigger-builds.sh
+   
+after_script:
+  - echo after script
