@@ -1,0 +1,25 @@
+language: generic
+
+before_install:
+  - mkdir -p $HOME/bin
+  - curl -s https://testspace-client.s3.amazonaws.com/testspace-linux-dev.tgz | tar -zxvf- -C $HOME/bin
+  - testspace config url http://mark.stridespace.com
+  - testspace -v
+
+env:
+  matrix:
+   - JOB=ONE
+   - JOB=TWO
+
+script:
+  - printenv > printenv.txt
+ 
+after_script:
+  - |
+    if [ $JOB = "ONE" ]; then
+      testspace [$JOB]test.xml [$JOB]"+printenv.txt{environment variables}"
+    elif [ $JOB = "TWO" ]; then
+      testspace [$JOB]test.xml [$JOB]"+printenv.txt{environment variables}"
+    else
+      echo "Unknown job"
+    fi
