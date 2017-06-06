@@ -1,0 +1,13 @@
+language: generic
+
+before_install:
+  - mkdir -p $HOME/bin
+  - curl -s https://testspace-client.s3.amazonaws.com/testspace-linux-dev.tgz | tar -zxvf- -C $HOME/bin
+  - testspace -v
+  - testspace config url http://$TS_TOKEN:@mark.stridespace.com/munderseth:ci.sandbox/standalone
+
+script:
+  - testspace suite-pass.xml "#Travis.$TRAVIS_BUILD_NUMBER"
+
+after_script:
+  - echo after script
