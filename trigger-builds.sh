@@ -3,10 +3,10 @@
 setup_git() {
   git config --global user.email "marku@s2technologies.com"
   git config --global user.name "munderseth"
+  git clone https://$GH_TOKEN@github.com/munderseth/ci.sandbox.git
 }
 
 trigger() {
-  git clone https://$GH_TOKEN@github.com/munderseth/ci.sandbox.git
   cd ci.sandbox
   git checkout $1
   date >> commit-trigger.txt
