@@ -1,7 +1,12 @@
 #!/bin/sh
 
+setup_git() {
+  git config --global user.email "marku@s2technologies.com"
+  git config --global user.name "munderseth"
+}
+
 trigger() {
-  git checkout $1
+  git checkout -b $1
   date >> commit-trigger.txt
   git add commit-trigger.txt
   git commit -m "trigger $1 CI build(s) ..."
