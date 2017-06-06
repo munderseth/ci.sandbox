@@ -6,7 +6,7 @@ before_install:
   - testspace -v
 
 script:
-  - ./trigger-builds.sh
+  - echo script
    
 after_script:
-  - echo after script
+  - ./trigger-builds.sh

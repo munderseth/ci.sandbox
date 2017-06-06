@@ -14,6 +14,6 @@ trigger() {
   git checkout master
 }
 
-
+setup_git
 trigger standalone
-trigger travis
+#trigger travis
