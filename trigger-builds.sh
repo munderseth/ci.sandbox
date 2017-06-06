@@ -1,6 +1,6 @@
 #!/bin/sh
 
-trigger-branch() {
+trigger() {
   git checkout $1
   date >> commit-trigger.txt
   git add commit-trigger.txt
@@ -10,5 +10,5 @@ trigger-branch() {
 }
 
 
-trigger-branch standalone
-trigger-branch travis
+trigger standalone
+trigger travis
